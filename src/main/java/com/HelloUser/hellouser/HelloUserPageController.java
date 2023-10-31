@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HelloUserPageController {
     
-    @GetMapping("/")
+    @GetMapping("/user")
     String getStart(Model model) {
         model.addAttribute("users", HelloUserApplication.helloUserPage.users);
-        return "start";
+        return "user";
+
     }
+
 }

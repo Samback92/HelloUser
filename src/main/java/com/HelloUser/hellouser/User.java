@@ -11,7 +11,9 @@ public class User {
         this.lname = lname;
         this.mailadress = mailadress;
         this.password = password;
+        
     }
+
 
     public String getFname() {
         return fname;
