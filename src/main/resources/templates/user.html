@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sams Users</title>
     <link rel="stylesheet" href="/style.css" />
-    <script src="script.js" defer></script>
+    <script src="user.js" defer></script>
 </head>
 <body>
     <h1>Alla medlemmar:</h1>
@@ -13,12 +13,13 @@
         <p>Här kan du också välja vad du vill göra:</p>
     </div>
         <a href="/"><button id="backToStartBtn">Tillbaka till Startsidan</button></a><br>
-        <a href="newmember"><button id="addUserBtn">Lägg till ny medlem</button></a>
+        <a href="newmember"><button id="newMemberBtn">Lägg till ny medlem</button></a>
     <ul>
-        <li th:each="user : ${users}" >
-            <a th:href="@{/user/{userName}(userName=${user.fname},${user.lname})}">
-                <span th:text="${user.fname}"></span>
-            </a>
+        <li th:id="${user.id}" th:each="user : ${userList}">
+            <a th:href="@{/remove-user/{userId}(userId=${user.id})}"><button>Ta bort</button></a>
+            <span th:text="${user.fname}"></span>
+            <span th:text="${user.lname}"></span>
+            <span th:text="${user.email}"></span>
         </li>
     </ul>
 </body>

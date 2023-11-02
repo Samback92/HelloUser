@@ -27,10 +27,4 @@ public class HelloUserApplication {
         return "start";
     }
 
-    @GetMapping ("/login")
-    public String loginPage() {
-        System.out.println("Mapping from Loginpage!");
-        return "login";
-    }
-
 }

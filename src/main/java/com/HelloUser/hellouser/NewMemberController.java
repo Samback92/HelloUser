@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class NewMemberController {
 
-    @GetMapping("/newmember")
+    @GetMapping("/user/newmember")
     String setUser(Model model) {
         model.addAttribute("users", HelloUserApplication.helloUserPage.users);
-        System.out.println("newUserName: ");
+        System.out.println("newUserName: " + model);
         return "newmember";
     }
 

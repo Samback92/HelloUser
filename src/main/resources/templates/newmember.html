@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sams Users</title>
     <link rel="stylesheet" href="/style.css" />
-    <script src="script.js" defer></script>
+    <script src="user.js" defer></script>
 </head>
 <body>
     <h1>Lägg till medlemmar:</h1>
-    <div id="inputNewMember">
-        <input id="inputNewFname" type="text"><br>
-        <input id="inputNewLname" type="text"><br>
-        <input id="inputEmail" type="text"><br>
-        <input id="inputPassword" type="text">
+    <div>
+        <form method="post" th:action="@{/user}" th:object="${userList}">
+            <p>Förnamn:<input type="text" th:field="*{fname}" /></p>
+            <p>Efternamn:<input type="text" th:field="*{lname}" /></p>
+            <p>E-mail:<input type="text" th:field="*{email}" /></p>
+            <p><input type="submit" value="Spara" /></p>
+        </form>
     </div>
-    <button id="saveNewMemberBtn" type="submit">Spara</button><br>
     <div>
         <a href="/"><button id="backToStartBtn">Tillbaka till Startsidan</button></a><br>
         <a href="user"><button id="backToStartBtn">Visa medlemmar</button></a>
     </div>
-
 </body>
 </html>
